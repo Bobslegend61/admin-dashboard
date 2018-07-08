@@ -1,0 +1,1 @@
+A simple admin dashboard using react and redux
