@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 
-import { getUsers } from "../../actions/userAction";
+import { getUsers, deleteUser } from "../../actions/userAction";
 import "./Login.css";
 
 class Login extends Component {
@@ -24,10 +25,13 @@ class Login extends Component {
         this.props.getUsers(username, password);
     }
 
+    deleteAUser = (id) => {
+        this.props.deleteUser(id);
+    }
+
 
     render() {
         const { users, loggedIn } = this.props.user;
-        console.log(users);
         return (
             <div className="Login">
                 <p className="header">{ loggedIn ? "Users" : "Login" }</p>
@@ -47,8 +51,8 @@ class Login extends Component {
                                 <div>{ id }</div>
                                 <div> { username } </div>
                                 <div>{ password }</div>
-                                <div><i className="far fa-edit"></i></div>
-                                <div><i className="fas fa-trash"></i></div>
+                                <div><Link to={ `/edit/${ id }` }><i className="far fa-edit"></i></Link></div>
+                                <div><i className="fas fa-trash" onClick={ () => this.deleteAUser(id) }></i></div>
                             </div>
                         )
                     }) }
@@ -64,7 +68,8 @@ const mapStateToProps = (state) => ({
 
 Login.propTypes = {
     getUsers: PropTypes.func.isRequired,
+    deleteUser: PropTypes.func,
     user: PropTypes.object.isRequired
 }
 
-export default connect(mapStateToProps, { getUsers })(Login);
+export default connect(mapStateToProps, { getUsers, deleteUser })(Login);

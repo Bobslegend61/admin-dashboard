@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import store from "./store";
 import Login from "./components/login/Login";
+import Edit from "./components/edit/Edit";
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route path="/" exact component={ Login }/>
+              <Route path="/edit/:id" exact component={ Edit }/>
             </Switch>
           </div>
         </Router>

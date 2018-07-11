@@ -12,7 +12,6 @@ let data = [
 ];
 
 router.post("/login", ({ body: { username, password } }, res) => {
-    console.log(username, password);
     if(!username || !password) return res.json({ success: false, msg: "No user found" });
 
     if(_.find(data, { username, password }) ) {
@@ -29,11 +28,12 @@ router.delete("/:id", ({ params: { id } }, res) => {
 
 router.put("/edit/:id", ({ params: { id }, body: { username, password } }, res) => {
    data.find(user => {
-       if(Number(id) === user.id) {
+       if(Number(id) === Number(user.id)) {
            user.username = username;
            user.password = password
        }
    });
+//    console.log(data);
    return res.json({ success: true, data });
 });
 

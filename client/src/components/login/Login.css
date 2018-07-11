@@ -57,4 +57,13 @@ input[type="submit"] {
     .Login .user-details div:nth-child(1), .Login .user-details div:nth-child(3) {
         display: block;
     }
+
+    input[type="submit"] {
+        width: initial;
+        padding: 5px 20px;
+    }
+
+    .Login .header {
+        text-align: left;
+    }
 }
