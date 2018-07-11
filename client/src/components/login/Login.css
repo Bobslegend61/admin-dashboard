@@ -1,0 +1,60 @@
+.Login .header {
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 100;
+    text-shadow: -5px 5px 9px #000;
+    text-align: center;
+    margin: 15px auto;
+}
+
+.Login .form-group {
+    margin: 10px auto;
+}
+
+.Login .form-group input {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #2B0B84;
+    padding: 5px 10px;
+    font-size: 1.3em;
+}
+
+input[type="submit"] {
+    color: #fff;
+    padding: 5px;
+    background: #7D62C7;
+    border-radius: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    box-shadow: 2px 4px 11px #000;
+}
+
+.Login .user-details {
+    display: grid;
+    grid-template-columns: auto 10px 10px;
+    padding: 10px;
+    grid-gap: 10px;
+    margin: auto;
+}
+
+.Login .user-details div:nth-child(1), .Login .user-details div:nth-child(3) {
+    display: none;
+}
+
+.fa-edit {
+    color: #2B0B84;
+}
+
+.fa-trash {
+    color: #CE5050
+}
+
+@media (min-width: 860px) {
+    .Login .user-details {
+        grid-template-columns: 10px auto auto 10px 10px;
+    }
+
+    .Login .user-details div:nth-child(1), .Login .user-details div:nth-child(3) {
+        display: block;
+    }
+}

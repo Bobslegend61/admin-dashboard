@@ -9,7 +9,7 @@ const app = express();
 
 // Define port
 const PORT = process.env.PORT || 4000;
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api", router);
 

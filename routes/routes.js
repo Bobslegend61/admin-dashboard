@@ -12,10 +12,13 @@ let data = [
 ];
 
 router.post("/login", ({ body: { username, password } }, res) => {
+    console.log(username, password);
+    if(!username || !password) return res.json({ success: false, msg: "No user found" });
+
     if(_.find(data, { username, password }) ) {
         return res.json({ success: true, data });
     }else {
-        return res.json({ success: true, msg: "No user found" });
+        return res.json({ success: false, msg: "Username/Password not correct" });
     }
 });
 
